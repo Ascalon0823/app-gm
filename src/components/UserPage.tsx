@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../server.ts";
+import { apiUrl } from "../server.ts";
 import type { User } from "../user.ts";
 import { useState } from "react";
 import ChangePassword from "./ChangePassword.tsx";
@@ -6,7 +6,7 @@ import Profile from "./Profile.tsx";
 function UserPage({ user }: { user: User | null }) {
   const handleLogout = async () => {
     try {
-      await fetch(API_BASE_URL + "/logout", {
+      await fetch(apiUrl("/logout"), {
         method: "POST",
         credentials: "include",
       })

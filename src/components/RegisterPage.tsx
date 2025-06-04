@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { API_BASE_URL } from "../server.ts";
+import { apiUrl } from "../server.ts";
 
 function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -7,7 +7,7 @@ function RegisterPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch(API_BASE_URL + "/register", {
+      await fetch(apiUrl("/register"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

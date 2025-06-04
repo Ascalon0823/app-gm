@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { API_BASE_URL } from "../server.ts";
+import { apiUrl } from "../server.ts";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch(API_BASE_URL + "/login", {
+      await fetch(apiUrl("/login"), {
         method: "POST",
         credentials: "include",
         headers: {
@@ -79,6 +79,14 @@ function LoginPage() {
               className="btn btn-primary w-100"
             />
           </form>
+          <button
+            className="btn btn-secondary mt-3"
+            onClick={() => {
+              window.location.href = "/password-forgot";
+            }}
+          >
+            Forgot Password?
+          </button>
         </div>
       </div>
     </>

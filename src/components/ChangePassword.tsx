@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { API_BASE_URL } from "../server.ts";
+import { apiUrl } from "../server.ts";
 function ChangePassword() {
   const [old_password, setOldPass] = useState("");
   const [new_password, setNewPass] = useState("");
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch(API_BASE_URL + "/change-password", {
+      await fetch(apiUrl("/change-password"), {
         method: "POST",
         credentials: "include",
         headers: {
